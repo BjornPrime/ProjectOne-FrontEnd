@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubmitService } from 'src/app/services/submit.service';
 
 @Component({
   selector: 'app-display-reimbursements',
@@ -19,9 +20,12 @@ export class DisplayReimbursementsComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private submitService: SubmitService) { }
 
   ngOnInit() {
+    for(let item of this.submitService.getSubmissions()) {
+      this.submissions.push(item);
+    }
   }
 
 }

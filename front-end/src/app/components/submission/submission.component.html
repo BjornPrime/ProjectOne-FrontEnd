@@ -1,3 +1,17 @@
-<p>
-  submission works!
-</p>
+<div id="submit-block">
+  <h2>New Submission</h2>
+  <!-- amount, description, receipt, type-->
+  <label for="amount">Amount</label>
+  <input id="amount" type="text" [(ngModel)]="amount">
+
+  <label for="type">Type</label>
+  <input id="type" type="text" [(ngModel)]="type">
+
+  <label for="description">Description</label>
+  <textarea id="description" [(ngModel)]="description"></textarea>
+
+  <label for="receipt">Documentation</label>
+  <input id="receipt" type="file" [(ngModel)]="receipt">
+
+  <button (click)='submit()'>Submit</button>
+</div>

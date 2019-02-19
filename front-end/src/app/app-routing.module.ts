@@ -29,6 +29,9 @@ const routes: Routes = [
         path: '',
         component: DisplayReimbursementsComponent
       }, {
+        path: 'reimbursements',
+        component: DisplayReimbursementsComponent
+      }, {
         path: 'details',
         component: ReimbursementDetailsComponent
       }, {
