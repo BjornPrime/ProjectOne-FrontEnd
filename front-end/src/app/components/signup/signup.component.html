@@ -14,8 +14,16 @@
   <label for='username'>Username</label>
   <input id='username' type='text' [(ngModel)]='username'>
 
+  <h3 class='problem' *ngIf=signupError>Passwords don't match. Please re-enter them.</h3>
+
   <label for='password'>Password</label>
-  <input id='password' type='text' [(ngModel)]='password'> 
+  <input id='password' type='password' [(ngModel)]='password'>
+  
+  <label for='reentry'>Re-enter Password</label>
+  <input id='reentry' type='password' [(ngModel)]='reentry'>
 
   <button (click)='signup()'>Sign Up</button>
+  <div>
+    Already signed up? <span routerLink='/login'>Click here.</span>
+  </div>
 </div>

@@ -17,6 +17,8 @@ import { DisplayWrapperComponent } from './components/display-wrapper/display-wr
 import { DisposeService } from './services/dispose.service';
 import { LogoutService } from './services/logout.service';
 import { SubmitService } from './services/submit.service';
+import { DisplayDetailsComponent } from './components/display-details/display-details.component';
+import { SessionService } from './services/session.service';
 
 @NgModule({
   declarations: [
@@ -27,15 +29,16 @@ import { SubmitService } from './services/submit.service';
     ReimbursementDetailsComponent,
     SubmissionComponent,
     DispositionComponent,
-    DisplayWrapperComponent
+    DisplayWrapperComponent,
+    DisplayDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [LoginService, ReimbursementsService, DisposeService, LogoutService, SubmitService],
+  providers: [LoginService, ReimbursementsService, DisposeService, LogoutService, SubmitService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localHost:8079/ProjectOne'
+  apiUrl: 'http://localHost:8079/ProjectOne/default'
 };
 
 /*

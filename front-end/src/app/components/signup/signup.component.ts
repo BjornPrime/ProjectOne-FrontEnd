@@ -12,8 +12,11 @@ export class SignupComponent implements OnInit {
   username = '';
   email = '';
   password = '';
+  reentry = '';
   firstName = '';
   lastName = '';
+
+  signupError = false;
 
   constructor(private loginService: LoginService,
     private router: Router) { }
@@ -22,6 +25,14 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
+    
+    if(this.reentry !== this.password) {
+      this.signupError = true;
+      return;
+    } else {
+      this.signupError = false;
+    }
+    
     const signupCredentials = {
       username: this.username,
       email: this.email,

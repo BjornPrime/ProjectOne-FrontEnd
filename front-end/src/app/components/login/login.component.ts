@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.services';
 import { Router } from '@angular/router';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  loginFailure = false;
+
+  constructor(private loginService: LoginService, private router: Router, private sessionService: SessionService) { }
 
   ngOnInit() {
   }
@@ -24,9 +27,12 @@ export class LoginComponent implements OnInit {
     };
 
     this.loginService.login(credentials).subscribe( (payload) => {
-      this.router.navigateByUrl('./display');
+      this.sessionService.newSession(payload);
+      this.router.navigateByUrl('/display');
     }, (err) => {
       console.log(err);
+      this.loginFailure = true;
+      this.router.navigateByUrl('/login');
     });
   }
 }

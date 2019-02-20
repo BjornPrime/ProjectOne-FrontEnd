@@ -11,20 +11,24 @@ CREATE TABLE reimbursements (
 	type INTEGER REFERENCES reimb_types (id) NOT NULL
 );
 
+
 CREATE TABLE reimb_statuses (
 	id SERIAL PRIMARY KEY,
 	status VARCHAR(10)
 );
+
 
 CREATE TABLE reimb_types (
 	id SERIAL PRIMARY KEY,
 	type VARCHAR(10)
 );
 
+
 CREATE TABLE user_roles (
 	id SERIAL PRIMARY KEY,
 	role VARCHAR(10)
 );
+
 
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
@@ -36,8 +40,17 @@ CREATE TABLE users (
 	user_role INTEGER REFERENCES user_roles (id) NOT NULL
 );
 
-SELECT * FROM reimbursements;
 
-INSERT INTO user_roles (role) VALUES ('ADMIN');
+SELECT * FROM users;
+
+
+INSERT INTO user_roles (role) VALUES ('EMPLOYEE'), ('MANAGER'), ('ADMIN');
+insert into reimb_types (type) values ('LODGING'), ('TRAVEL'), ('FOOD'), ('OTHER');
+insert into reimb_statuses (status) values ('PENDING'), ('APPROVED'), ('REJECTED');
+
 
 DROP TABLE reimbursements;
+
+create role expense_app_jdbc LOGIN password 'everything';
+grant all privileges on table reimbursements, users to expense_app_jdbc;
+grant all privileges on sequence reimbursements_id_seq, users_id_seq to expense_app_jdbc;

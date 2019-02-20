@@ -2,13 +2,15 @@
   <h2>Log in</h2>
   <hr>
 
+  <h2 class='problem' *ngIf='loginFailure'>Invalid credentials. Please try again.</h2>
+
   <label for='email'>Email</label>
   <input id='email' type='text' [(ngModel)]='email'>
 
   <label for='password'>Password</label>
-  <input id='password' type='text' [(ngModel)]='password'>
+  <input id='password' type='password' [(ngModel)]='password'>
 
-  <button (click)='login'>Login</button>
+  <button (click)='login()'>Login</button>
 
-  <p>Not signed up?<span routerLink='/signup'>Click here</span></p>
+  <p>Not signed up? <span routerLink='/signup'>Click here</span></p>
 </div>
