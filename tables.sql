@@ -49,7 +49,7 @@ insert into reimb_types (type) values ('LODGING'), ('TRAVEL'), ('FOOD'), ('OTHER
 insert into reimb_statuses (status) values ('PENDING'), ('APPROVED'), ('REJECTED');
 
 
-DROP TABLE reimbursements;
+DROP TABLE *;
 
 create role expense_app_jdbc LOGIN password 'everything';
 grant all privileges on table reimbursements, users to expense_app_jdbc;

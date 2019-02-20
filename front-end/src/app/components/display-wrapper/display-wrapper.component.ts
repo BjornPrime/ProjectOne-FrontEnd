@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-display-wrapper',
@@ -9,7 +10,7 @@ export class DisplayWrapperComponent implements OnInit {
 
   firstName = 'Connor';
   lastName = 'Shepard';
-  roleNo = 1;
+  roleNo = 2;
   email = 'cshep@comcast.com';
 
   role = this.chooseRole(this.roleNo);
@@ -25,7 +26,7 @@ export class DisplayWrapperComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
   }

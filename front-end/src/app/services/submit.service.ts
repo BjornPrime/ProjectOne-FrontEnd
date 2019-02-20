@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class SubmitService {
 
   submissions = [{
+    firstName: 'Zaphod',
+    lastName: 'Beeblebrox',
     amount: 43.70,
     submitted: 'Sept 34th, 20XZ',
     status: 'rejected'
