@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class SubmitService {
 
   submissions = [{
+    id: 0,
     firstName: 'Zaphod',
     lastName: 'Beeblebrox',
     amount: 43.70,
@@ -16,9 +18,16 @@ export class SubmitService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // addSubmission(submission) {
+  //   this.submissions.push(submission);
+  //   console.log(this.submissions);
+  // }
+
   addSubmission(submission) {
-    this.submissions.push(submission);
-    console.log(this.submissions);
+    console.log('submit invoked');
+    const url = `${environment.apiUrl}/submit`;
+    console.log(url);
+    return this.httpClient.post(url, submission);
   }
 
   getSubmissions() {

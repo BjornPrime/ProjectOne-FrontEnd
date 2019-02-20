@@ -1,6 +1,6 @@
 <div id="id-block">
-  <h2>{{firstName}} {{lastName}}</h2>
-  <h2>{{email}}</h2>
-  <h2>{{role}}</h2>
+  <h2>{{currentUser.firstName}} {{currentUser.lastName}}</h2>
+  <h2>{{currentUser.email}}</h2>
+  <h2>{{chooseRole(currentUser.role)}}</h2>
 </div>
 <router-outlet></router-outlet>

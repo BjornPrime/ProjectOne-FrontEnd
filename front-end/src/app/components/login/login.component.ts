@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.loginService.login(credentials).subscribe( (payload) => {
+      console.log(payload);
       this.sessionService.newSession(payload);
       this.router.navigateByUrl('/display');
     }, (err) => {

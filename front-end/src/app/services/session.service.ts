@@ -5,25 +5,28 @@ import { Injectable } from '@angular/core';
 })
 export class SessionService {
   
-  private currentUser = {
+  currentUser = {
     firstName: '',
     lastName: '',
     role: 0,
     username: '',
     loggedIn: false,
     email: '',
+    id: ''
   };
 
   constructor() { }
 
   newSession(loginDetails) {
     this.currentUser = {
-      firstName: loginDetails.getAttribute('firstName'),
-      lastName: loginDetails.getAttribute('lastName'),
-      role: loginDetails.getAttribute('role'),
-      username: loginDetails.getAttribute('username'),
-      email: loginDetails.getAttribute('email'),
+      firstName: loginDetails['firstName'],
+      lastName: loginDetails['lastName'],
+      role: loginDetails['userRole'],
+      username: loginDetails['username'],
+      email: loginDetails['email'],
+      id: loginDetails['userID'],
       loggedIn: true
     }
+    console.log(this.currentUser);
   }
 }

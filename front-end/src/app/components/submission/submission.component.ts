@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmitService } from 'src/app/services/submit.service';
 import { Router } from '@angular/router';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-submission',
@@ -16,7 +17,9 @@ export class SubmissionComponent implements OnInit {
 
   newSubmission = {};
 
-  constructor(private submitService: SubmitService, private router: Router) { }
+  submissionFailure = false;
+
+  constructor(private submitService: SubmitService, private router: Router, private sessionService: SessionService) { }
 
   ngOnInit() {
   }
@@ -24,19 +27,24 @@ export class SubmissionComponent implements OnInit {
   submit() {
     console.log('submit started');
     this.newSubmission = {
+      author: 1,//this.sessionService.currentUser.id,
       amount: this.amount,
       type: this.type,
       description: this.description,
-      receipt: this.receipt,
-      submitted: new Date(),
-      status: 'Pending'
+      documentation: this.receipt,
+      submitDate: new Date(),
+      status: 1
     }
     console.log('submission created');
 
-    this.submitService.addSubmission(this.newSubmission);
-    console.log('submit invoked');
-    this.router.navigateByUrl('/display');
-    console.log('navigation attempted');
+    this.submitService.addSubmission(this.newSubmission).subscribe((payload) => {
+      console.log(payload);
+      this.router.navigateByUrl('/display');
+      console.log('navigation attempted');
+    }, (err) => {
+      console.log(err);
+      this.submissionFailure = true;
+    });
   }
 
 }

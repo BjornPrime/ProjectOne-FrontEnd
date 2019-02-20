@@ -8,12 +8,7 @@ import { SessionService } from 'src/app/services/session.service';
 })
 export class DisplayWrapperComponent implements OnInit {
 
-  firstName = 'Connor';
-  lastName = 'Shepard';
-  roleNo = 2;
-  email = 'cshep@comcast.com';
-
-  role = this.chooseRole(this.roleNo);
+  currentUser = {};
 
   chooseRole(num: number) {
     switch(num) {
@@ -26,7 +21,10 @@ export class DisplayWrapperComponent implements OnInit {
     }
   }
 
-  constructor(private sessionService: SessionService) { }
+  constructor(private sessionService: SessionService) {
+    this.currentUser = sessionService.currentUser;
+
+   }
 
   ngOnInit() {
   }
