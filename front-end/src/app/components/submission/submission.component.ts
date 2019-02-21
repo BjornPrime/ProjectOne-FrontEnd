@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubmitService } from 'src/app/services/submit.service';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/app/services/session.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-submission',
@@ -10,18 +11,25 @@ import { SessionService } from 'src/app/services/session.service';
 })
 export class SubmissionComponent implements OnInit {
 
+//  public radioGroupForm: FormGroup;
+
   amount = '';
   type = '';
   description = '';
   receipt = '';
+  model = 1;
 
   newSubmission = {};
 
   submissionFailure = false;
 
-  constructor(private submitService: SubmitService, private router: Router, private sessionService: SessionService) { }
+  constructor(private submitService: SubmitService,
+              private router: Router, private sessionService: SessionService) { }
 
   ngOnInit() {
+    // this.radioGroupForm = this.formBuilder.group({
+    //   model : 1
+    // });
   }
 
   submit() {

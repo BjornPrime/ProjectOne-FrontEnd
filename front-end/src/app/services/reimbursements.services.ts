@@ -9,6 +9,7 @@ export class ReimbursementsService {
   private entry = {};
 
   getDetails(id: number) {
+    console.log(id);
     const url = `${environment.apiUrl}/details`;
     return this.httpClient.post(url, id);
   }

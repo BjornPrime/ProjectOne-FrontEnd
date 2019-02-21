@@ -29,4 +29,16 @@ export class SessionService {
     }
     console.log(this.currentUser);
   }
+
+  endSession() {
+    this.currentUser = {
+      firstName: '',
+      lastName: '',
+      role: 0,
+      username: '',
+      loggedIn: false,
+      email: '',
+      id: ''
+     };
+  }
 }

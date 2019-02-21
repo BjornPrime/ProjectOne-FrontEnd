@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: #55aaee;
+}
+
+.container {
+    border: 10px solid #dddddd;
+}
+
+/* div {
+    background: #77ccff;
+    border: 2px solid #ddddff;
+} */
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 .problem {
     background: #ffaaaa;
     border: 5px red;

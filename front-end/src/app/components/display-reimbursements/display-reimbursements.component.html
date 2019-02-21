@@ -1,3 +1,15 @@
+<div>
+    <div *ngIf="userIsManager" class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter by Status
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="statusFilter=1">Pending</a>
+          <a class="dropdown-item" (click)="statusFilter=2">Approved</a>
+          <a class="dropdown-item" (click)="statusFilter=3">Rejected</a>
+          <a *ngIf="statusFilter!=0" class="dropdown-item" (click)="statusFilter=0">Clear Filter</a>
+        </div>
+      </div>
 <table>
   <tr>
     <th *ngIf='userIsManager'>Author ID#</th>
@@ -5,13 +17,12 @@
     <th>Submitted</th>
     <th>Status</th>
   </tr>
-  <tr *ngFor="let item of submissions">
-    <span (click)="seeDetails(item.id)">
-    <td *ngIf="userIsManager">{{item.author}}</td>
-    <td>${{item.amount}}</td>
-    <td>{{item.submitDate}}</td>
-    <td>{{statusName(item.status)}}</td>
-    </span>
+  <tr *ngFor="let item of submissions" (click)="seeDetails(item.reimbID)">
+    <td *ngIf="userIsManager && unfiltered(item.status)">{{item.author}}</td>
+    <td *ngIf="unfiltered(item.status)">${{item.amount}}</td>
+    <td *ngIf="unfiltered(item.status)">{{item.submitDate}}</td>
+    <td *ngIf="unfiltered(item.status)">{{statusName(item.status)}}</td>
   </tr>
   <button><span routerLink='submit'>Submit New Request</span></button>
 </table>
+</div>

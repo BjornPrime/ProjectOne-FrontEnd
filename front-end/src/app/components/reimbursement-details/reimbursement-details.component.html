@@ -2,3 +2,5 @@
   {{entry.description}}
   {{entry.amount}}
 </p>
+<button *ngIf="canDispose()" (click)="approve(entry.reimbID)">Approve</button>
+<button *ngIf="canDispose()" (click)="reject(entry.reimbID)">Reject</button>

@@ -3,6 +3,7 @@
   <h2>{{currentUser.firstName}} {{currentUser.lastName}}</h2>
   <h2>{{currentUser.email}}</h2>
   <h2>{{chooseRole(currentUser.role)}}</h2>
+  <button (click)="logout()">Log out</button>
 </div>
 <router-outlet></router-outlet>
 </div>
