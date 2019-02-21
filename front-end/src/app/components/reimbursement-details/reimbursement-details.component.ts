@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/services/session.service';
+import { ReimbursementsService } from 'src/app/services/reimbursements.services';
 
 @Component({
   selector: 'app-reimbursement-details',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReimbursementDetailsComponent implements OnInit {
 
-  constructor() { }
+  entry = this.reimbursementsService.getEntry();
+
+  constructor(private sessionService: SessionService, private reimbursementsService: ReimbursementsService) { }
 
   ngOnInit() {
+
   }
 
 }

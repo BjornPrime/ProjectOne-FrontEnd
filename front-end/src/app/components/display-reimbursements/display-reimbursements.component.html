@@ -1,16 +1,17 @@
 <table>
   <tr>
+    <th *ngIf='userIsManager'>Author ID#</th>
     <th>Amount</th>
     <th>Submitted</th>
     <th>Status</th>
   </tr>
   <tr *ngFor="let item of submissions">
-<!--    <span routerLink="./reimbursement/id"> -->
-    <td *ngIf="userIsManager">{{item.firstName}} {{item.lastName}}</td>
+    <span (click)="seeDetails(item.id)">
+    <td *ngIf="userIsManager">{{item.author}}</td>
     <td>${{item.amount}}</td>
-    <td>{{item.submitted}}</td>
-    <td>{{item.status}}</td>
- <!--   </span> -->
+    <td>{{item.submitDate}}</td>
+    <td>{{statusName(item.status)}}</td>
+    </span>
   </tr>
   <button><span routerLink='submit'>Submit New Request</span></button>
 </table>

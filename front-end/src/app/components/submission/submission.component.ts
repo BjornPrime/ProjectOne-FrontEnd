@@ -27,7 +27,7 @@ export class SubmissionComponent implements OnInit {
   submit() {
     console.log('submit started');
     this.newSubmission = {
-      author: 1,//this.sessionService.currentUser.id,
+      author: this.sessionService.currentUser.id,
       amount: this.amount,
       type: this.type,
       description: this.description,
