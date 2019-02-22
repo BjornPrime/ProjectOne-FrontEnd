@@ -1,0 +1,24 @@
+.btn-group {
+    background: white;
+}
+
+/* * {
+    margin: 2px;
+}
+
+.btn {
+    margin: 0px;
+} */
+
+#submit-block {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 40% 40px;
+    border: 2px solid darkblue;
+    align-items: center;
+    background: #5599dd;
+    justify-content: space-between;
+    min-height: 300px;
+    padding: 5px;
+    border-radius: 2%;
+}

@@ -3,20 +3,64 @@ body {
     background: #55aaee;
 }
 
-.container {
+/* .container {
     border: 10px solid #dddddd;
-}
+} */
 
 /* div {
     background: #77ccff;
     border: 2px solid #ddddff;
 } */
-#login {
+
+/* div {
+    border-radius: 2%;
+} */
+
+/* #login {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
+} */
 .problem {
     background: #ffaaaa;
     border: 5px red;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 10% 40px;
+    /* border: 2px solid darkblue; */
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+    padding: 30px;
+    background: #004477;
+    color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 40% 40px;
+    border: 2px solid darkblue;
+    align-items: center;
+    background: #5599dd;
+    justify-content: space-between;
+    min-height: 300px;
+    padding: 5px;
+}
+
+.odd {
+    background: #4488cc;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.even {
+    background: #66aaee;
+    padding: 5px;
+    border-radius: 5px;
 }

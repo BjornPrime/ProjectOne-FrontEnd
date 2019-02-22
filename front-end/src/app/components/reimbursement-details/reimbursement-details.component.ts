@@ -11,9 +11,37 @@ import { Router } from '@angular/router';
 })
 export class ReimbursementDetailsComponent implements OnInit {
 
-  entry = this.reimbursementsService.getEntry();
+  entry = {};
 
   userIsManager = false;
+
+  getType(num: number) {
+    switch(num) {
+      case 1:
+        return 'Lodging';
+      case 2:
+        return 'Travel';
+      case 3:
+        return 'Food';
+      case 4:
+        return 'Other';
+      default:
+        return 'Unknown';
+    }
+  }
+
+  getStatus(num: number) {
+    switch(num) {
+      case 1:
+        return 'Pending';
+      case 2:
+        return 'Approved';
+      case 3:
+        return 'Rejected';
+      default:
+        return 'Unknown';
+    }
+  }
 
   constructor(private sessionService: SessionService, private reimbursementsService: ReimbursementsService,
     private disposeService: DisposeService, private router: Router) { }
@@ -22,6 +50,8 @@ export class ReimbursementDetailsComponent implements OnInit {
     if (this.sessionService.currentUser.role === 2) {
       this.userIsManager = true;
     }
+    this.entry = this.reimbursementsService.getEntry();
+    this.entry['submitDate'] = new Date(this.entry['submitDate']);
   }
 
   approve(entryID: number) {

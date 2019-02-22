@@ -14,12 +14,17 @@ export class SubmissionComponent implements OnInit {
 //  public radioGroupForm: FormGroup;
 
   amount = '';
-  type = '';
+  type = 0;
   description = '';
   receipt = '';
   model = 1;
 
   newSubmission = {};
+
+  setType(num: number) {
+    this.type = num;
+    console.log(this.type);
+  };
 
   submissionFailure = false;
 
@@ -36,10 +41,11 @@ export class SubmissionComponent implements OnInit {
     console.log('submit started');
     this.newSubmission = {
       author: this.sessionService.currentUser.id,
+      authorName: `${this.sessionService.currentUser.firstName} ${this.sessionService.currentUser.lastName}`,
       amount: this.amount,
       type: this.type,
       description: this.description,
-      documentation: this.receipt,
+   //   documentation: this.receipt,
       submitDate: new Date(),
       status: 1
     }

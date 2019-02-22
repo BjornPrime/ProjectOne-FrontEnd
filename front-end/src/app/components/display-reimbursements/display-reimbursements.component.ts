@@ -55,6 +55,9 @@ export class DisplayReimbursementsComponent implements OnInit {
       console.log(payload);
       this.submissions = payload;
       this.submissions.sort(function(a, b){return a.submitDate - b.submitDate; });
+      for(let entry of this.submissions) {
+        entry['submitDate'] = new Date(entry['submitDate']);
+      };
     });
     // for(let item of this.submitService.getSubmissions().body) {
     //   this.submissions.push(item);

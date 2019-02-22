@@ -1,4 +1,4 @@
-<div>
+<div class="table-block">
     <div *ngIf="userIsManager" class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Filter by Status
@@ -10,19 +10,23 @@
           <a *ngIf="statusFilter!=0" class="dropdown-item" (click)="statusFilter=0">Clear Filter</a>
         </div>
       </div>
-<table>
+<table class="table table-striped">
+  <thead>
   <tr>
-    <th *ngIf='userIsManager'>Author ID#</th>
+    <th *ngIf='userIsManager'>Author</th>
     <th>Amount</th>
     <th>Submitted</th>
     <th>Status</th>
   </tr>
+  </thead>
+  <tbody>
   <tr *ngFor="let item of submissions" (click)="seeDetails(item.reimbID)">
-    <td *ngIf="userIsManager && unfiltered(item.status)">{{item.author}}</td>
-    <td *ngIf="unfiltered(item.status)">${{item.amount}}</td>
-    <td *ngIf="unfiltered(item.status)">{{item.submitDate}}</td>
+    <td *ngIf="userIsManager && unfiltered(item.status)">{{item.authorName}}</td>
+    <td *ngIf="unfiltered(item.status)" data-number-to-fixed="2" class="currency">${{item.amount.toFixed(2)}}</td>
+    <td *ngIf="unfiltered(item.status)">{{item.submitDate.toLocaleTimeString('en-us')}} {{item.submitDate.toDateString()}}</td>
     <td *ngIf="unfiltered(item.status)">{{statusName(item.status)}}</td>
   </tr>
+  </tbody>
   <button><span routerLink='submit'>Submit New Request</span></button>
 </table>
 </div>

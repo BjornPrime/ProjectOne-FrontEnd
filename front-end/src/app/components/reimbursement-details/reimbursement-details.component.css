@@ -1,0 +1,33 @@
+.description {
+    background: lightgray;
+    width: 90%;
+    border: 1px solid black;
+    min-height: 300px;
+}
+
+.odd {
+    background: #4488cc;
+}
+
+.even {
+    background: #66aaee;
+}
+
+.detail {
+    margin: 5px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+#detail-wrapper {
+    display: flex;
+    margin: 20px 40% 40px;
+    border: 2px solid darkblue;
+    flex-direction: row;
+    align-items: center;
+    background: #5599dd;
+    justify-content: space-between;
+}

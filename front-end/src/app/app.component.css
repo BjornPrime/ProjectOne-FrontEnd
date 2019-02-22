@@ -1,4 +1,18 @@
 #logo {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    max-width: 400px;
+    background-color: aqua;
+    border: 2px solid darkblue;
+}
+
+#title {
     float: right;
-    
+    text-align: center;
+    margin-top: 0px;
+    background: #004477;
+    color: white;
+    min-height: 100px;
+    padding-left: 20px;
 }

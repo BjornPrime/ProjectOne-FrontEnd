@@ -1,16 +1,17 @@
-<div class='container' id='login'>
+<div class='block' id='login'>
   <h2>Log in</h2>
-  <hr>
 
   <h2 class='problem' *ngIf='loginFailure'>Invalid credentials. Please try again.</h2>
 
-  <label for='email'>Email</label>
+  <div>
+  <label class="odd" for='email'>Email</label>
   <input id='email' type='text' [(ngModel)]='email'>
-
-  <label for='password'>Password</label>
+</div>
+<div>
+  <label class="odd" for='password'>Password</label>
   <input id='password' type='password' [(ngModel)]='password'>
-
+</div>
   <button (click)='login()'>Login</button>
 
-  <p>Not signed up? <span routerLink='/signup'>Click here</span></p>
+  <p class="even">Not signed up? <span class='odd' routerLink='/signup'>Click here</span></p>
 </div>
