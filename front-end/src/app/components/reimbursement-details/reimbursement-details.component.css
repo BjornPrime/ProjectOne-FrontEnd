@@ -3,6 +3,7 @@
     width: 90%;
     border: 1px solid black;
     min-height: 300px;
+    min-width: 250px;
 }
 
 .odd {
@@ -24,10 +25,14 @@
 
 #detail-wrapper {
     display: flex;
-    margin: 20px 40% 40px;
+    margin: 20px 35% 40px;
     border: 2px solid darkblue;
     flex-direction: row;
     align-items: center;
     background: #5599dd;
     justify-content: space-between;
+}
+
+button {
+    margin: 2px;
 }

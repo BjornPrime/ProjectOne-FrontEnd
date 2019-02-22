@@ -1,25 +1,25 @@
 <div id="detail-wrapper">
   <div class="details">
-  <div class="amount detail odd">
-    Amount: {{entry.amount}}
+    <div class="amount detail odd">
+      Amount: {{entry.amount}}
+    </div>
+    <div class="author detail even">
+      Author: {{entry.authorName}}
+    </div>
+    <div class="type detail odd">
+      Type: {{getType(entry.type)}}
+    </div>
+    <div class="date detail even">
+      Date Submitted: {{entry.submitDate.toLocaleTimeString('en-us')}} {{entry.submitDate.toDateString()}}
+    </div>
+    <div class="status detail odd">
+      Status: {{getStatus(entry.status)}}
+    </div>
+    <button class="odd" routerLink="/display">Back</button>
   </div>
-  <div class="author detail even">
-    Author: {{entry.authorName}}
+  <div>
+    <div class="description detail even">{{entry.description}}</div>
+    <button *ngIf="canDispose()" (click)="approve(entry.reimbID)">Approve</button>
+    <button *ngIf="canDispose()" (click)="reject(entry.reimbID)">Reject</button>
   </div>
-  <div class="type detail odd">
-    Type: {{getType(entry.type)}}
-  </div>
-  <div class="date detail even">
-    Date Submitted: {{entry.submitDate.toLocaleTimeString('en-us')}} {{entry.submitDate.toDateString()}}
-  </div>
-  <div class="status detail odd">
-    Status: {{getStatus(entry.status)}}
-  </div>
-  <button class="odd" routerLink="/display">Back</button>
-  </div>
-  <div class="description detail even">
-    {{entry.description}}
-  </div>
-<button *ngIf="canDispose()" (click)="approve(entry.reimbID)">Approve</button>
-<button *ngIf="canDispose()" (click)="reject(entry.reimbID)">Reject</button>
 </div>
